@@ -19,7 +19,6 @@ jobs:
       run: docker build . -t ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-app-test
     - name: Push the Docker Image
       run: docker push ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-app-test
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
