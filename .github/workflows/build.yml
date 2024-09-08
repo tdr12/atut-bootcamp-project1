@@ -19,3 +19,20 @@ jobs:
       run: docker build . -t ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-app-test
     - name: Push the Docker Image
       run: docker push ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-app-test
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    name: Deploy on Scaleway Containers
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Scaleway Container Deploy action
+        id: deploy
+        uses:  philibea/scaleway-containers-deploy@v1.0.5
+        with:
+          type: deploy
+          scw_access_key:  ${{ secrets.ACCESS_KEY }}
+          scw_secret_key: ${{ secrets.SECRET_KEY }}
+          scw_containers_namespace_id: ${{ secrets.CONTAINERS_NAMESPACE_ID }}
+          scw_registry: docker pull rg.fr-par.scw.cloud/atut-group-2/delano-app-test:latest
