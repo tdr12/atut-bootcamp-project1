@@ -18,8 +18,4 @@ jobs:
     - name: Build the Docker image
       run: docker build . -t ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-app-test
     - name: Push the Docker Image
-<<<<<<< HEAD
       run: docker push ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-app-test
-=======
-      run: docker push ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/testapp
->>>>>>> c83a0339c72ee1c3ee1a6fc69678fb736aa81963
