@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v4
       - name: Scaleway Container Deploy action
         id: deploy
-        uses:  atut-group-2/scaleway-containers-deploy@v1.0.5
+        uses:  philibea/scaleway-containers-deploy@v1.1.5
         with:
           type: deploy
           scw_access_key:  ${{ secrets.ACCESS_KEY }}
