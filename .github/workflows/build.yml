@@ -20,7 +20,7 @@ jobs:
     - name: Push the Docker Image
       run: docker push ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-app-test
   deploy:
-    needs: build
+    #needs: build
     runs-on: ubuntu-latest
     name: Deploy on Scaleway Containers
     steps:
