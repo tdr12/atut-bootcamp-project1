@@ -24,7 +24,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Deploy to instance
-        uses: appleboy/ssh-action@master@v0.1.6 #philibea/scaleway-containers-deploy@v1.0.5
+        uses: appleboy/ssh-action@master  #philibea/scaleway-containers-deploy@v1.0.5
         with:
           host: ${{ secrets.HOST }}           # Adresse du serveur SSH
           username: ${{ secrets.SSH_USER }}   # Nom d’utilisateur pour se connecter au serveur SSH

@@ -1,0 +1,22 @@
+version: '3'  # Version de la syntaxe Docker Compose
+
+services:
+  backend:
+    build: 
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: backend  # Nom du conteneur
+    ports:
+      - "8032:8032"
+    restart: always
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    container_name: frontend
+    ports: 
+      - "8033:8033"
+    depends_on:
+      - backend
+    restart: always
