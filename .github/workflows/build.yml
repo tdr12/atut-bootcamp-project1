@@ -26,16 +26,16 @@ jobs:
       - name: Deploy to instance
         uses: appleboy/ssh-action@master@v0.1.6 #philibea/scaleway-containers-deploy@v1.0.5
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.SSH_USER }}
-          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          host: ${{ secrets.HOST }}           # Adresse du serveur SSH
+          username: ${{ secrets.SSH_USER }}   # Nom d’utilisateur pour se connecter au serveur SSH
+          key: ${{ secrets.SSH_PRIVATE_KEY }} # Clé privée SSH pour l’authentification
           script: |
             # Récupérer la dernière version de l'image depuis le registre
             docker pull ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-app-test || exit 1
                 
             # Arrêter et supprimer le conteneur existant (si nécessaire)
-            docker stop delano-app-test || true
-            docker rm delano-app-test || true
+            # docker stop delano-app-test || true
+            # docker rm delano-app-test || true
                 
             # Lancer le nouveau conteneur
             docker run -d --name delano-app-test -p 8033:8033 ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-app-test
