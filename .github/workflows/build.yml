@@ -28,10 +28,10 @@ jobs:
         uses: actions/checkout@v4
       - name: Scaleway Container Deploy action
         id: deploy
-        uses:  philibea/scaleway-containers-deploy@v1.1.5
+        uses:  philibea/scaleway-containers-deploy@v1.0.5
         with:
           type: deploy
           scw_access_key:  ${{ secrets.ACCESS_KEY }}
           scw_secret_key: ${{ secrets.SECRET_KEY }}
-          scw_containers_namespace_id: ${{ secrets.CONTAINERS_NAMESPACE_ID }}
-          scw_registry: docker pull ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/groupe-2:latest
+          #scw_containers_namespace_id: ${{ secrets.CONTAINERS_NAMESPACE_ID }}
+          #scw_registry: docker pull ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/groupe-2:latest
