@@ -31,7 +31,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }} # Clé privée SSH pour l’authentification
           script: |
             # Récupérer la dernière version de l'image depuis le registre
-            docker pull ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-app-test #:latest || exit 1
+            docker pull ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-app-test:latest
                 
             # Arrêter et supprimer le conteneur existant (si nécessaire)
             # docker stop delano-app-test || true
