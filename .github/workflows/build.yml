@@ -46,6 +46,8 @@ jobs:
           username: ${{ secrets.SSH_USER }}   # Nom d’utilisateur pour se connecter au serveur SSH
           key: ${{ secrets.SSH_PRIVATE_KEY }} # Clé privée SSH pour l’authentification
           port: 22
+          source: "./docker-compose.yml"
+          target: "home/delano/"
           script: |
             cd home/delano
             # Arrêter et supprimer les conteneurs existants (si nécessaire)
