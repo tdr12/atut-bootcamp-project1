@@ -16,7 +16,7 @@ jobs:
         password: ${{ secrets.SCALEWAY_API_KEY }}
         registry: ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}
     - name: Build the backend Docker image
-      run: docker build ./backend -t ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-backend:latest
+      run: docker-compose build ./backend -t ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-backend:latest
     - name: Push the backend Docker Image
       run: docker push ${{ secrets.CONTAINER_REGISTRY_ENDPOINT }}/delano-backend:latest
   
