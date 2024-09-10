@@ -47,7 +47,7 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }} # Clé privée SSH pour l’authentification
           port: 22
           script: |
-            cd ./delano
+            cd home/delano
             # Arrêter et supprimer les conteneurs existants (si nécessaire)
             docker-compose down . || true
             docker-compose rm . || true
